@@ -1,0 +1,21 @@
+// Save in: com/app/validator/UserValidator.java
+package com.app.validator;
+import com.app.exceptions.*;
+import java.util.Arrays;
+import java.util.List;
+
+public class UserValidator {
+    private static final List<String> VALID_DEPTS = Arrays.asList("IT", "HR", "Sales");
+
+    public void validate(int age, String dept) throws InvalidAgeException, InvalidDeptException {
+        if (age < 18 || age > 60) {
+            throw new InvalidAgeException("Age must be between 18 and 60.");
+        }
+        
+        if (!VALID_DEPTS.contains(dept)) {
+            throw new InvalidDeptException("Department '" + dept + "' is not recognized.");
+        }
+        
+        System.out.println("Validation Successful: Age and Department are valid.");
+    }
+}
