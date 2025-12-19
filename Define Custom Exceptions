@@ -1,0 +1,17 @@
+// Save in: com/app/exceptions/InvalidAgeException.java
+package com.app.exceptions;
+
+public class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+// Save in: com/app/exceptions/InvalidDeptException.java
+package com.app.exceptions;
+
+public class InvalidDeptException extends Exception {
+    public InvalidDeptException(String message) {
+        super(message);
+    }
+}
