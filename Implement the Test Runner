@@ -1,0 +1,31 @@
+// Save in: com/app/main/MainApp.java
+package com.app.main;
+import com.app.validator.UserValidator;
+import com.app.exceptions.*;
+
+public class MainApp {
+    public static void main(String[] args) {
+        UserValidator validator = new UserValidator();
+
+        // Test Case 1: Invalid Age
+        try {
+            validator.validate(15, "IT");
+        } catch (InvalidAgeException | InvalidDeptException e) {
+            System.err.println("Test 1 Failed: " + e.getMessage());
+        }
+
+        // Test Case 2: Invalid Dept
+        try {
+            validator.validate(25, "Marketing");
+        } catch (InvalidAgeException | InvalidDeptException e) {
+            System.err.println("Test 2 Failed: " + e.getMessage());
+        }
+
+        // Test Case 3: Success
+        try {
+            validator.validate(30, "HR");
+        } catch (Exception e) {
+            System.err.println("Unexpected Error: " + e.getMessage());
+        }
+    }
+}
